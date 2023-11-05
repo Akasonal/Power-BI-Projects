@@ -1,4 +1,5 @@
 import streamlit as st
+import openpyxl
 import pandas as pd
 from io import BytesIO
 import base64
@@ -33,8 +34,8 @@ if uploaded_files:
 
     # Save consolidated data to an Excel file
     excel_file = BytesIO()
-    with pd.ExcelWriter(excel_file, engine="openpyxl") as writer:
-        consolidated_data.to_excel(writer, index=False, sheet_name="Consolidated Data")
+with pd.ExcelWriter(excel_file, engine="xlsxwriter") as writer:
+    consolidated_data.to_excel(writer, index=False, sheet_name="Consolidated Data")
 
 
     # Create a download button for the consolidated Excel file
