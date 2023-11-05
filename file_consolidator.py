@@ -23,7 +23,7 @@ def read_and_concat_data(files, sheet_name):
         st.progress(progress)
     consolidated_data = pd.concat(data_frames, ignore_index=True)
     consolidated_data=consolidated_data.fillna(' ')
-    consolidated_data['BuyerName'] = consolidated_data['BuyerName'].astype(str)
+    consolidated_data = consolidated_data.astype(str)
 
     return consolidated_data
 
