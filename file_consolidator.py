@@ -22,6 +22,7 @@ def read_and_concat_data(files, sheet_name):
         progress = (i + 1) / total_files
         st.progress(progress)
     consolidated_data = pd.concat(data_frames, ignore_index=True)
+    consolidated_data=consolidated_data.fillna(' ')
     return consolidated_data
 
 if uploaded_files:
